@@ -143,6 +143,8 @@ spec:
               {{- include "siros-id.containerSecurityContext" (dict) | nindent 14 }}
               resources:
                 {{- toYamlPretty .Values.resources.mongo.mongodbAgent | nindent 16 }}
+              readinessProbe:
+                timeoutSeconds: 3
       volumeClaimTemplates:
         - metadata:
             name: data-volume
