@@ -399,15 +399,15 @@ images:
   issuerApigw: "ghcr.io/sirosfoundation/vc/apigw:0.8.0-sirosid.0-amd64"
   issuerCore: "ghcr.io/sirosfoundation/vc/issuer:0.8.0-sirosid.0-amd64"
   verifier: "ghcr.io/sirosfoundation/vc/verifier:0.8.0-sirosid.0-amd64"
-  walletAdmin: "ghcr.io/sirosfoundation/go-wallet-admin:0.25.3"
-  walletBackend: "ghcr.io/sirosfoundation/go-wallet-backend:0.25.3"
+  walletAdmin: "ghcr.io/sirosfoundation/go-wallet-admin:0.25.4"
+  walletBackend: "ghcr.io/sirosfoundation/go-wallet-backend:0.25.4"
   walletFrontend: "ghcr.io/sirosfoundation/wallet-frontend:0.7.0"
   pdp: "ghcr.io/sirosfoundation/go-trust:0.31.0"
   otlpCollector: "docker.io/jaegertracing/jaeger:2.15.1"
   r2ps: "ghcr.io/sirosfoundation/go-r2ps-service:0.1.0"
   # Init/sidecar/shared images
   opsStackUtilities: "ghcr.io/sirosfoundation/ops_stack_utilities:0.2.1"
-  nginx: "ghcr.io/nginx/nginx-unprivileged:1.31.8-alpine"
+  nginx: "ghcr.io/nginx/nginx-unprivileged:1.31.9-alpine"
   alpine: "docker.io/library/alpine:3.24.4"
   # MongoDB
   mongoCommunityVersion: "7.0.24"
