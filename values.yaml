@@ -150,6 +150,13 @@ issuer:
   datastoreImport:
     documents: {}
     users: []
+    # Default authentic source for datastore-sourced credential types, written
+    # to each scope's authentic_source. vc requires it on every scope whose
+    # auth_provider is oidc, saml or openid4vp - it is what the identity lookup
+    # matches against - and refuses to start without it. Set per credential
+    # type with features.credentialTypes.<id>.issuance.authenticSource when a
+    # tenant draws on more than one source; this is the fallback.
+    authenticSource: ""
   datasourceAssertion: {}
   apiAuth:
     jwks:

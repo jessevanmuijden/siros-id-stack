@@ -129,6 +129,20 @@ apigw:
         {{- range $id, $data := . }}
         {{ $id | quote }}:
           auth_provider: {{ $data.issuance.authProvider | quote }}
+          {{- /*
+            vc requires authentic_source on every datastore scope whose
+            auth_provider is oidc, saml or openid4vp: it is what the identity
+            lookup matches a presented PID (or OIDC subject) against, and
+            without it apigw panics at startup with
+            authentic_source_required_for_identity_mapping, naming every such
+            scope. Per-credential, falling back to a deployment-wide default
+            so a tenant whose documents all come from one source states it
+            once.
+          */}}
+          {{- $authenticSource := default $.Values.issuer.datastoreImport.authenticSource $data.issuance.authenticSource }}
+          {{- if $authenticSource }}
+          authentic_source: {{ $authenticSource | quote }}
+          {{- end }}
           {{- if eq $data.issuance.authProvider "oidc" }}
           auth_claims: {{- $data.issuance.authOptions.claims | toYamlPretty | nindent 12 }}
           {{- else if eq $data.issuance.authProvider "openid4vp" }}

@@ -52,6 +52,9 @@ features:
       issuance:
         authProvider: openid4vp
         source: "datastore"
+        # issuer_documents_diploma.json comes from Ladok, not the
+        # MockTaxAuthority default set under issuer.datastoreImport.
+        authenticSource: Ladok
         authOptions:
           scopes:
             demo_pid_rb_1_5:
@@ -160,6 +163,10 @@ issuer:
       - "100"
       - "102"
   datastoreImport:
+    # vc requires every datastore scope to name the authentic source its
+    # identity lookup matches against. Most demo documents come from
+    # MockTaxAuthority; diploma overrides this with Ladok.
+    authenticSource: MockTaxAuthority
     documents: 
       # max 1MB in total, use the API if you need more, since the feature is for quick testing.
       # !!! credentials are only added on initialization of the database !!!
