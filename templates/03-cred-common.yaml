@@ -9,5 +9,12 @@ metadata:
 data:
   .empty: "I am here so that the configmap won't ever be empty"
   {{- range $id, $data := .Values.features.credentialTypes }}
+  {{- /*
+    An ISO 18013-5 mdoc type carries an MDDL schema instead of a VCTM, so
+    .vctm is nil for it and dataOrFile fails on an empty object. Skip those
+    rather than demand a document the type does not have.
+  */}}
+  {{- if $data.vctm }}
   {{ $id }}.json: | {{- include "siros-id.dataOrFile" (list $ $data.vctm) | nindent 4 }}
+  {{- end }}
   {{- end }}
