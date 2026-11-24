@@ -400,7 +400,7 @@ images:
   verifier: "ghcr.io/sirosfoundation/vc/verifier:0.8.0-sirosid.0-amd64"
   walletAdmin: "ghcr.io/sirosfoundation/go-wallet-admin:0.25.4"
   walletBackend: "ghcr.io/sirosfoundation/go-wallet-backend:0.25.4"
-  walletFrontend: "ghcr.io/sirosfoundation/wallet-frontend:0.7.0"
+  walletFrontend: "ghcr.io/sirosfoundation/wallet-frontend:0.7.2"
   pdp: "ghcr.io/sirosfoundation/go-trust:0.31.0"
   otlpCollector: "docker.io/jaegertracing/jaeger:2.15.1"
   r2ps: "ghcr.io/sirosfoundation/go-r2ps-service:0.1.0"
