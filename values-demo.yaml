@@ -161,6 +161,7 @@ features:
                 - birthdate
 
 issuer:
+  # Current limitation: Identity mappings are only created using this feature, never updated.
   identitymappingImport:
     identities:
       identity_mapping:
@@ -171,7 +172,6 @@ issuer:
   datastoreImport:
     documents: 
       # max 1MB in total, use the API if you need more, since the feature is for quick testing.
-      # !!! credentials are only added on initialization of the database !!!
       demo_pid_rb_1_5:
         file: "config/demo/issuer_documents_demo_pid_rb_1_5.json"
       ehic:
